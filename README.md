@@ -1,6 +1,6 @@
 # Python Learning Workspace
 
-Welcome to the **Python Learning Workspace**, a curated collection of hands‑on examples, tutorials, and a mini‑project to help you master Python from the basics through advanced features.
+Welcome to the **Python Learning Workspace**, a curated collection of hands‑on examples, tutorials, and mini‑projects to help you master Python from basics through advanced features.
 
 ---
 
@@ -11,9 +11,7 @@ Welcome to the **Python Learning Workspace**, a curated collection of hands‑on
 3. [Installation](#installation)
 4. [Repository Structure](#repository-structure)
 5. [Usage Examples](#usage-examples)
-6. [Mini Project](#mini-project)
-7. [Contributing](#contributing)
-8. [License](#license)
+6. [Mini‑Projects](#mini-projects)
 
 ---
 
@@ -26,9 +24,9 @@ This repo is your one‑stop workspace for:
 * **OOP Concepts**: Classes, inheritance, dunder methods, and encapsulation.
 * **File I/O & Error Handling**: Reading/writing files and managing exceptions.
 * **Advanced Features**: Type hints, pattern matching (`match`), lambdas, comprehensions, and more.
-* **Mini‑Project**: A simple web app demonstrating Flask integration.
+* **Mini‑Projects**: Small applications showcasing Flask web development and voice‑activated assistants.
 
-Whether you’re just starting out or brushing up on specific topics, you’ll find well‑documented examples here.
+Whether you’re a beginner or an experienced coder brushing up on specific topics, you’ll find clear, documented examples here.
 
 ---
 
@@ -53,7 +51,7 @@ Whether you’re just starting out or brushing up on specific topics, you’ll f
    git clone https://github.com/ArshhAnsari/python_tutorial.git
    cd python_tutorial
    ```
-2. **Install dependencies** (for the mini‑project)
+2. **Install dependencies** (for all mini‑projects)
 
    ```bash
    pip install -r requirements.txt
@@ -89,46 +87,54 @@ python_tutorial/
 │   ├── 3_exceptions.py
 │   └── ...
 ├── MiniProject/
-│   ├── app.py
-│   ├── logic.py
-│   └── templates/index.html
-├── requirements.txt
-└── README.md
+│   ├── snake_water_gun/
+│   │   ├── app.py
+│   │   ├── templates/index.html
+│   │   └── requirements.txt
+│   └── jarvis/
+│       ├── jarvis.py
+│       └── requirements.txt
+└── README.md  # This file
 ```
 
-> **Note**: Filenames have been updated to be more descriptive and consistent.
+> **Note**: Each mini‑project lives in its own subfolder under `MiniProject/`.
 
 ---
 
 ## 🚀 Usage Examples
 
-For any topic folder, run the example scripts directly. For instance, to explore data types:
+To run any example or project, specify its path. For instance, to explore data types:
 
 ```bash
 python3 1_Basics/1_datatypes.py
 ```
 
-Browse and modify the code to experiment with different inputs and scenarios.
-
 ---
 
-## 🕸️ Mini Project: Flask Web App
+## 🕸️ Mini‑Projects
 
-A simple Snake–Water–Gun game implemented with Flask:
+### 1. Snake–Water–Gun Game
 
-1. **Install Flask** (if not already installed)
+A Flask web app where you play a Rock‑Paper‑Scissors variant against the computer.
 
-   ```bash
-   pip install Flask
-   ```
-2. **Run the app**
+```bash
+cd MiniProject/snake_water_gun
+python app.py
+```
 
-   ```bash
-   python3 MiniProject/app.py
-   ```
-3. **Open in your browser** Visit `http://127.0.0.1:5000/`
+Then visit `http://127.0.0.1:5000` in your browser.
 
-Feel free to extend the app with new features, styles, or deployment configurations.
+### 2. Jarvis Personal Assistant
+
+A voice‑activated assistant using speech recognition and Windows SAPI for speech output.
+
+```bash
+cd MiniProject/jarvis
+conda activate jarvis      # if using Conda
+python jarvis.py
+```
+
+Say “Jarvis” to wake it, then use commands like “Open YouTube” or “Open GitHub.”
 
 ---
 
@@ -136,10 +142,10 @@ Feel free to extend the app with new features, styles, or deployment configurati
 
 Contributions are welcome! Feel free to:
 
-* Add examples or deeper tutorials in existing directories.
+* Add new examples or deeper tutorials in existing directories.
 * Improve documentation or fix typos.
-* Enhance the mini‑project with additional functionality.
+* Enhance mini‑projects with additional features.
 
-Please fork the repo, make your changes, and submit a pull request.
+Please fork the repo, create a branch, and submit a pull request.
 
 ---

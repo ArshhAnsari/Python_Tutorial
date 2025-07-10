@@ -1,0 +1,109 @@
+# Jarvis Personal Assistant
+
+A voice-controlled personal assistant built in Python using speech recognition and Windows SAPI for text-to-speech. Jarvis listens for a wake word, processes simple commands to open websites, and responds verbally.
+
+---
+
+## 🔍 Features
+
+* **Wake Word Detection**: Listens for the keyword "Jarvis" to activate.
+* **Speech Recognition**: Converts spoken commands into text using the Google Speech Recognition API.
+* **Text-to-Speech (TTS)**: Speaks responses through Windows SAPI (COM interface) for reliable audio output.
+* **Command Execution**: Opens popular websites (YouTube, Google, Facebook, Twitter/X, GitHub, Stack Overflow, ChatGPT).
+* **Ambient Noise Calibration**: Adapts to background noise for improved recognition accuracy.
+
+---
+
+## 📁 Repository Structure
+
+```
+python_tutorial/
+└── MiniProject/
+    └── jarvis/
+        ├── main.py         # Main application script
+        ├── requirements.txt  # External dependencies
+        └── README.md         # This file
+```
+
+---
+
+## ⚙️ Prerequisites
+
+* Windows OS (for SAPI COM interface)
+* Python 3.8+ installed
+* Conda (optional) or virtual environment support
+
+---
+
+## 📦 Installation
+
+1. **Clone this repo** (inside `python_tutorial/MiniProject/jarvis`):
+
+   ```bash
+   git clone https://github.com/ArshhAnsari/python_tutorial.git
+   cd python_tutorial/MiniProject/jarvis
+   ```
+2. **Create and activate a Conda environment** (recommended):
+
+   ```bash
+   conda create -n jarvis python=3.11
+   conda activate jarvis
+   ```
+3. **Install dependencies**:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## 🚀 Usage
+
+```bash
+conda activate jarvis       # if created a virtual environment, then activate your environment
+python main.py            # else execute this command to start the assistant
+```
+
+1. On startup, Jarvis will announce **"Initializing Jarvis"**.
+2. Speak the wake word **"Jarvis"** clearly into your microphone.
+3. After Jarvis responds **"Yes, Sir?"**, speak one of the supported commands:
+
+   * **Open YouTube**
+   * **Open Google**
+   * **Open Facebook**
+   * **Open Twitter** (X)
+   * **Open GitHub**
+   * **Open StackOverflow**
+   * **Open ChatGPT**
+4. Jarvis will open the requested site in your default web browser and confirm verbally.
+
+---
+
+## 🛠️ Configuration
+
+* **Volume & Rate**: Adjust `speaker.Volume` (0–100) and `speaker.Rate` (–10 to +10) in `jarvis.py`.
+* **Ambient Calibration**: Tweak `adjust_for_ambient_noise` duration for different noise levels.
+* **Add Commands**: Extend the `process_command` function with new `elif` blocks to handle more tasks.
+
+---
+
+## 📄 Dependencies
+
+```text
+speechrecognition==3.x
+pypiwin32==223
+webbrowser (standard library)
+```
+
+*(Exact versions may vary — see `requirements.txt`.)*
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/your-feature`.
+3. Commit your changes and push: `git push origin feature/your-feature`.
+4. Open a Pull Request and describe your additions.
+
+---
