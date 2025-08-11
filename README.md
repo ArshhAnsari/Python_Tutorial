@@ -80,7 +80,8 @@ python_tutorial/
 │   ├── 1_classes.py
 │   ├── 2_class_static_methods.py
 │   ├── 3_inheritance.py
-│   └── 4_dunder_getter_setter.py
+│   |── 4_dunder_getter_setter.py
+|   └── ... 
 ├── 6_More/
 │   ├── 1_typing_hints.py
 │   ├── 2_pattern_matching.py
