@@ -26,13 +26,14 @@ class Employee:
     
 
 emp_1 = Employee('John','Smith')
-emp_1.fullname = 'Arsh Ansari'
-emp_2 = Employee('Test','User')
+print(emp_1.fullname) # Calls fullname getter
+emp_1.fullname = 'Arsh Ansari' # Calls fullname setter
+emp_2 = Employee('Test','User') 
 emp_2.fullname = 'Test User'
-print(emp_1.first)
-print(emp_1.email)
-print(emp_1.fullname)
-del emp_2.fullname
+print(emp_1.first) # Calls first getter
+print(emp_1.email) # Calls email getter
+print(emp_1.fullname) # Calls fullname getter
+del emp_2.fullname # Calls fullname deleter
 
 print("\n",emp_1.__dict__)
 print("\n",emp_2.__dict__)
