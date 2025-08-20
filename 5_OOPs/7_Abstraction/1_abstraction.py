@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 # Abstract Base Class (ABC)
+# To become an abstract class, first you need to inherit from ABC class and you have to define at least one abstract method in your class
 class Shape(ABC):
     @abstractmethod
     def area(self):
