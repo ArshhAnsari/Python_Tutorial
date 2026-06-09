@@ -36,8 +36,11 @@ popped = default_sorted.pop(4)
 print(f"pop(4) removed {popped}, list now:", default_sorted)
 
 # remove(value): remove first occurrence of value
-default_sorted.remove(5)
-print("After remove(5):", default_sorted)
+poplist = default_sorted.copy()  # create a copy to demonstrate remove()
+poplist.insert(4, 5)  # add another 5 to show remove() only removes first occurrence
+print("Before remove(5):", poplist)
+poplist.remove(5)
+print("After remove(5):", poplist)
 
 # 4. Other helpful list operations
 print("\nLength of list:", len(default_sorted))

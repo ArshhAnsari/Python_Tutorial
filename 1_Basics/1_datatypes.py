@@ -15,6 +15,11 @@ print(f"Value: {greeting}, Type: {type(greeting)}")
 # Character (in Python, a one-character string)
 letter = 'c'
 print(f"Value: {letter}, Type: {type(letter)}")
+""" The concept of a "character" is not a separate data type in Python. 
+    Instead, a single character is represented as a string of length one. 
+    So, when you assign 'c' to the variable letter, it is treated as a string of length one, 
+    and its type is <class 'str'>.
+    """
 
 # Float (decimal numbers)
 my_float = 4.250

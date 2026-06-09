@@ -1,0 +1,6 @@
+def total(mul, *args):
+    res = 0
+    for arg in args:
+        res += arg * mul
+    return res
+print(total(2, 1, 2, 3))

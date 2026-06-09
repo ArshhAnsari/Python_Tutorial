@@ -67,3 +67,11 @@ print(f"Name = {Name}\nIf we try to modify it: {Name.replace('Arsh','Mohd Arsh')
 print(f"It will not change: {Name}\n")
 Name=Name.replace('Arsh','Mohd Arsh')
 print(f"Assigning a new value however: Name = {Name} will change.\n")
+
+fruit = "banana"
+print(f"using .replace() on '{fruit}' to change 'a' to 'o': {fruit.replace('a', 'o')}")
+# .replace() replaces every matching substring, so replacing 'a' would change all 'a' characters in the string.
+# To change only a specific character or position, build a new string using slicing and concatenation.
+# Here we keep the part of 'fruit' after the first character and prepend 'A' to it.
+new_fruit = "A" + fruit[1:]
+print(f"Now the fruit is: {new_fruit}")

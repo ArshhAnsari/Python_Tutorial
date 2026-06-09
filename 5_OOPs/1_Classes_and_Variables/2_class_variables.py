@@ -1,11 +1,12 @@
 class Employee:
+    # CLASS variable — shared across all instances
     # class variable which will be used to raise the salary of each employee
     rasie_amt=1.04
     # class variable which will keep track of the number of employees
     num_of_emps = 0
 
     def __init__(self,first,last,pay):
-        # instance variables
+        # INSTANCE variable — unique per instance
         self.first = first
         self.last = last
         self.pay = pay

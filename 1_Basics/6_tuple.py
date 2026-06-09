@@ -15,8 +15,22 @@ print("Last item:", fruits[-1])
 print("First two items:", fruits[:2])
 
 # Unpacking
-a, b, c = fruits
+# Unpacking: the tuple on the right (fruits) is an ordered iterable.
+# The assignment on the left (a, b, c) is a sequence of target variables.
+# Python matches items by position: first item -> a, second -> b, third -> c.
+# If the number of variables doesn't match the number of items, Python raises a ValueError.
+a, b, c = fruits  # a gets fruits[0], b gets fruits[1], c gets fruits[2]
 print(f"Unpacked values: a={a}, b={b}, c={c}")
+
+# Example showing positional mapping explicitly:
+# fruits = ("Apple", "Banana", "Cherry")
+# a -> "Apple"  (fruits[0])
+# b -> "Banana" (fruits[1])
+# c -> "Cherry" (fruits[2])
+
+# Extended unpacking: capture remaining items with *rest
+# (works if there are more items than variables)
+# a, *rest = fruits  # a="Apple", rest=["Banana","Cherry"]
 
 # 2. Common tuple methods
 # count(value): number of occurrences of value
