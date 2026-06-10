@@ -28,13 +28,20 @@ class Fraction:
         new_numerator = self.numerator * other.denominator
         new_denominator = self.denominator * other.numerator
         return f"Fraction of {self} / {other} = {new_numerator}/{new_denominator}"
+    
+    def __mul__(self,other):
+        new_numerator = self.numerator * other.numerator
+        new_denominator = self.denominator * other.denominator
+        return Fraction(new_numerator,new_denominator)
 
 # Creating Fraction objects
 fr1 = Fraction(1, 2)
 fr2 = Fraction(1, 3)
 # print(fr1.denominator)
-print(fr1)
+print(fr1)              # 1/2          ← __str__
+print(repr(fr1))        # Fraction(1, 2)  ← __repr__
 print(fr2)
 print(fr1 + fr2)
 print(fr1 - fr2)
 print(fr1 / fr2)
+print(fr1 * fr2)

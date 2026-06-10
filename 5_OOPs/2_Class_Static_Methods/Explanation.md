@@ -161,3 +161,325 @@ print(u.greet("Arsh"))      # same result, but calling via class is clearer
 Use the class name to call either one for clarity: `Class.method(...)`.
 
 ---
+
+```
+class A:
+    __x = 10
+
+class B(A):
+    __x = 99
+
+a = A()
+b = B()
+
+print(A._A__x)
+print(B._B__x)
+print(b._A__x)   # ← think carefully before answering
+```
+
+## What actually happens with `__x`?
+
+When Python sees:
+
+```python
+class A:
+    __x = 10
+```
+
+it silently rewrites it to:
+
+```python
+class A:
+    _A__x = 10
+```
+
+This process is called **name mangling**.
+
+Similarly:
+
+```python
+class B(A):
+    __x = 99
+```
+
+becomes:
+
+```python
+class B(A):
+    _B__x = 99
+```
+
+So Python creates **two completely different names**:
+
+```python
+_A__x = 10
+_B__x = 99
+```
+
+There is no overriding happening.
+
+---
+
+## What exists in memory?
+
+Think of the classes as:
+
+```python
+A
+└── _A__x = 10
+
+B
+├── inherits A
+└── _B__x = 99
+```
+
+Notice:
+
+```python
+_A__x
+```
+
+still belongs to `A`.
+
+and
+
+```python
+_B__x
+```
+
+still belongs to `B`.
+
+---
+
+## What happens when you do?
+
+```python
+b = B()
+
+b._A__x
+```
+
+Python performs normal attribute lookup.
+
+### Step 1
+
+Check instance:
+
+```python
+b.__dict__
+```
+
+contains:
+
+```python
+{}
+```
+
+Not found.
+
+---
+
+### Step 2
+
+Check class `B`
+
+Look inside:
+
+```python
+B.__dict__
+```
+
+Contains:
+
+```python
+_B__x
+```
+
+But you're asking for:
+
+```python
+_A__x
+```
+
+Not found.
+
+---
+
+### Step 3
+
+Check parent class `A`
+
+Look inside:
+
+```python
+A.__dict__
+```
+
+Contains:
+
+```python
+_A__x = 10
+```
+
+Found.
+
+Return:
+
+```python
+10
+```
+
+So:
+
+```python
+b._A__x
+```
+
+works exactly the same as:
+
+```python
+b.some_parent_attribute
+```
+
+because `_A__x` is just a normal attribute name now.
+
+---
+
+## Then why use name mangling?
+
+Not for security.
+
+Not for privacy.
+
+It exists mainly to avoid accidental collisions.
+
+Imagine:
+
+```python
+class A:
+    __x = 10
+
+class B(A):
+    __x = 99
+```
+
+Without mangling:
+
+```python
+class A:
+    x = 10
+
+class B(A):
+    x = 99
+```
+
+Then:
+
+```python
+B.x
+```
+
+would overwrite A's `x`.
+
+But with mangling:
+
+```python
+_A__x = 10
+_B__x = 99
+```
+
+both can coexist.
+
+---
+
+## The key misconception
+
+You are thinking:
+
+> "__x belongs exclusively to A, therefore B objects should never see it."
+
+That would be true if Python had true private members.
+
+In C++:
+
+```cpp
+class A {
+private:
+    int x;
+};
+```
+
+A derived class cannot directly access `x`.
+
+Python does **not** enforce that.
+
+Instead Python says:
+
+> "I'll rename it so subclasses don't accidentally clash with it."
+
+That's all.
+
+---
+
+## Proof that it's not private
+
+```python
+class A:
+    __x = 10
+
+print(A._A__x)
+```
+
+Output:
+
+```python
+10
+```
+
+You can directly access it.
+
+If it were truly private, this wouldn't be possible.
+
+---
+
+## Why does Python call it "private"?
+
+Historically people often say:
+
+```python
+__x
+```
+
+is "private".
+
+A more accurate statement is:
+
+> Double underscore attributes are name-mangled, not private.
+
+Interview-wise, this distinction is important.
+
+**Single underscore (`_x`)**
+
+* Convention only
+* "Please don't touch this"
+
+**Double underscore (`__x`)**
+
+* Name mangling
+* Prevents accidental overrides in subclasses
+
+**Neither provides true access control.**
+
+---
+
+Once mangling is done, `_A__x` is just another attribute in the inheritance chain, so a `B` instance can still find it through normal attribute lookup.
+
+That's why:
+
+```python
+b._A__x
+```
+
+returns `10` instead of raising an error.
+
+---

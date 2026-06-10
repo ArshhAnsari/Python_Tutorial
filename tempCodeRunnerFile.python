@@ -1,6 +1,21 @@
-def total(mul, *args):
-    res = 0
-    for arg in args:
-        res += arg * mul
-    return res
-print(total(2, 1, 2, 3))
+class Temperature:
+    def __init__(self, celsius):
+        self.celsius = celsius
+
+    @property
+    def celsius(self):
+        return self._celsius
+
+    @celsius.setter
+    def celsius(self, value):
+        if value < -273.15:
+            raise ValueError("Below absolute zero")
+        self._celsius = value
+
+    @property
+    def fahrenheit(self):
+        return self._celsius * 9/5 + 32
+    
+obj = Temperature(100)
+print(obj.__dict__)
+print(Temperature.__dict__)

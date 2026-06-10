@@ -15,7 +15,7 @@ class Age_Name:
     def __repr__(self):
         # The __repr__ method returns a string representation of the object
         return f"Age_Name('{self.name}', {self.age})"
-    
+        #Rule of thumb: __repr__ should ideally be something you could paste back into Python to recreate the object.
 
 
 str1=Age_Name("Arsh",20)
@@ -26,3 +26,38 @@ print("It prints the string representation of the object",str2) # this will call
 
 print(str1.__len__()) 
 print(str2.__len__())
+
+'''
+Common Dunders Reference
+
+# ── REPRESENTATION ──
+__str__        # str(obj), print(obj)
+__repr__       # repr(obj), shell display
+
+# ── ARITHMETIC ──
+__add__        # obj + other
+__sub__        # obj - other
+__mul__        # obj * other
+__truediv__    # obj / other
+__floordiv__   # obj // other
+__mod__        # obj % other
+__pow__        # obj ** other
+
+# ── COMPARISON ──
+__eq__         # obj == other
+__lt__         # obj < other
+__le__         # obj <= other
+__gt__         # obj > other
+__ge__         # obj >= other
+
+# ── CONTAINER BEHAVIOUR ──
+__len__        # len(obj)
+__getitem__    # obj[key]
+__setitem__    # obj[key] = value
+__contains__   # item in obj
+
+# ── LIFECYCLE ──
+__init__       # obj = Class()
+__del__        # when object is garbage collected
+
+'''
