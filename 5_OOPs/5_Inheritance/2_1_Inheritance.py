@@ -83,6 +83,11 @@ When you define `__init__` in `Student`, you override `User.__init__`. Python ru
 super().__init__(...) says: “Run the next __init__ in the method-resolution order (usually the parent) so it can set up its part of the object.”
 Without super(), the parent’s setup is skipped and attributes it creates won’t exist on the instance — hence AttributeError.
 
+What super() Actually Returns
+super() does not return the parent class. It returns a proxy object bound to the next class in the MRO of the instance being used.
+The proxy knows two things: 
+where you currently are in the MRO, and which instance you are working with. It uses that to find the next class.
+
 > Correct usage with super():
 
 # Parent
