@@ -606,6 +606,9 @@ Neither lives on the call stack — both on the heap.
 The difference: `a` holds ALL values simultaneously,
 `b` holds only enough state to produce the NEXT one.
 
+For a focused step-by-step explanation of `iter()`, `next()`, and generator
+expressions, see [Iter_Next_Generator_Expression.md](Iter_Next_Generator_Expression.md).
+
 ---
 
 ## §11 — WHY list(items) DOESN'T MAKE [[1,2,3]]
