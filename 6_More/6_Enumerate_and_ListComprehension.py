@@ -21,3 +21,10 @@ for index, value in enumerate(list):
 print("\nList Comprehension:")
 squaredList=[i*i for i in list]
 print(squaredList)
+
+print("\nZip():")
+names = ["Amit", "Riya", "John"]
+scores = [85, 92, 78]
+
+for name, score in zip(names, scores):
+    print(f"{name} scored {score}")
