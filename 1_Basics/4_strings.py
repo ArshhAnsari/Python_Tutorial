@@ -60,6 +60,12 @@ greeting = "Hello"
 name = "Bob"
 print(f"{greeting}, {name}")
 
+# Using Join method 
+str1 = "Arsh"
+str2 = "Ansari"
+str3 = " ".join([str1,str2]) 
+print("Using Join Method: ",str3)
+
 # Imutability
 print("\n# How Strings Are Immutabile")
 Name="Arsh Ansari"

@@ -48,6 +48,9 @@ print("Contains 10?", 10 in default_sorted)
 print("Index of 10:", default_sorted.index(1))
 print("Count of 10:", default_sorted.count(10))
 print("Concatenate with [100, 200]:", default_sorted + [100, 200])
+# Join method 
+lst = ["Arsh","Ansari"]
+print(f"Using Join Method to convert list-{lst} into string-"," ".join(lst))
 
 # Note: since lists are mutable, operations like sort(), reverse(), insert(), pop(), remove()
 # change the original list object rather than creating a new one.
