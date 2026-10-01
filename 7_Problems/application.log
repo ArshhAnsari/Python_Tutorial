@@ -1,0 +1,10 @@
+INFO User login successful
+INFO Dashboard loaded
+ERROR Database connection failed
+INFO User updated profile
+WARNING Disk space is getting low
+ERROR Payment service unavailable
+INFO User logged out
+ERROR Timeout while connecting to database
+INFO Report generated
+WARNING API response is slow

@@ -458,6 +458,17 @@ print(list(c))   # [1, 2, 3] — fresh iterator again, no exhaustion carried ove
 # A decorator is just a PATTERN that combines these two. Nothing new is
 # happening mechanically — only a new way of arranging familiar pieces.
 
+# Simple Analogy
+# Imagine you have a gift (your original function).
+# A decorator is like gift-wrapping paper.
+
+# You take the original gift.
+# You wrap extra behavior around it (logging, timing, authentication…).
+# From the outside, people still call it by the same name.
+# But when they open it, the extra wrapping runs first, then the original gift is used.
+
+# That’s all a decorator is:
+# a function that takes another function and returns a new improved version of it.
 
 # ─────────────────────────────────────────────
 # 2.2 THE PROBLEM DECORATORS SOLVE
