@@ -939,3 +939,87 @@ MRO answers:
 super() answers:
 "Who is next in the MRO?"
 ```
+
+---
+
+
+# Important To know!
+## *`__mro__`* is available on the **class**, not on the instance.
+
+### Example
+
+```python
+class A:
+    pass
+
+class B(A):
+    pass
+
+obj = B()
+```
+
+### On the class → works
+
+```python
+print(B.__mro__)
+```
+
+Output:
+```text
+(<class '__main__.B'>, <class '__main__.A'>, <class 'object'>)
+```
+
+### On the instance → error
+
+```python
+print(obj.__mro__)
+```
+
+Output:
+```text
+AttributeError: 'B' object has no attribute '__mro__'
+```
+
+---
+
+### How to get MRO from an instance
+
+Use the instance’s class:
+
+```python
+print(obj.__class__.__mro__)
+# or
+print(type(obj).__mro__)
+```
+
+---
+
+### Why?
+
+| Target | Has `__mro__`? | Reason |
+|--------|----------------|--------|
+| Class (`B`) | Yes | MRO is class-level information |
+| Instance (`obj`) | No | Instance stores object data, not inheritance structure |
+
+---
+
+### Mental model
+
+- Inheritance chain belongs to the **class**
+- Instance only knows which class it belongs to (`obj.__class__`)
+- So:
+
+```text
+instance → class → __mro__
+```
+
+Not:
+
+```text
+instance → __mro__
+```
+
+**Summary:**  
+`__mro__` is for classes. On an instance it raises `AttributeError`. Use `type(obj).__mro__` or `obj.__class__.__mro__`.
+
+---
