@@ -1,0 +1,21 @@
+{
+    "customers": [
+        {
+            "customer_id": 106,
+            "name": "Arsh",
+            "email": "arsh@gmail.com",
+            "phone_no": "9999999999"
+        }
+    ],
+    "accounts": [
+        {
+            "account_no": 1001,
+            "type": "SavingsAccount",
+            "balance": 10000.0,
+            "customer_id": 106
+        }
+    ],
+    "transactions": [],
+    "next_acc_no": 1002,
+    "next_transaction_id": 1
+}
